@@ -1,0 +1,1523 @@
+$font-family: Helvetica, sans-serif
+$secondary-color: #1e7e51
+$lighter-secondary: #268f5e
+$darker-secondary: #0c6139
+$primary-color: #4A3114
+$darker-primary: #36220c
+$lighter-primary: #80592c
+$third-color: #4E2075
+$navbar-width: 10rem
+$square-size: 6.5rem
+
+*
+  font-family: $font-family
+  margin: 0
+  box-sizing: border-box
+
+html,
+body,
+#app
+  width: 100%
+  height: 100%
+
+.base-layout
+  display: flex
+  min-height: 100%
+  width: 100%
+  background-color: $lighter-primary
+
+.base-navbar
+  width: $navbar-width
+  position: fixed
+  left: 0
+  background-color: $primary-color
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  top: 0
+
+  a
+    color: lightgray
+    font-size: 1.3rem
+    font-weight: 600
+    width: 100%
+    padding-left: 0.8rem
+    height: 3.5rem
+    line-height: 3.5rem
+
+    &:first-child
+      margin-top: 2rem
+
+    &:hover
+      background-color: $secondary-color
+      color: white
+
+  .navbar__logout
+    margin-top: auto
+    margin-bottom: 0
+    background-color: $darker-primary
+
+  .search
+    padding: 1.1rem
+    height: 15rem
+    color: white
+    border: 0.3rem solid $darker-primary
+    border-radius: 0.4rem
+    background-color: $lighter-primary
+    display: flex
+    flex-direction: column
+    width: 93%
+    align-items: center
+    justify-content: space-between
+
+    .search__gif
+      max-width: 3rem
+
+    button
+      background-color: $darker-primary
+      font-size: 1.1rem
+      width: 100%
+      height: 2rem
+      margin-top: 0.2rem
+    
+    p
+      font-size: 1.1rem
+
+      &:first-child
+        font-weight: 600
+        font-size: 1.3rem
+        color: $darker-primary
+        margin-bottom: 0.5rem
+
+  .navbar__auth-buttons
+    display: flex
+    flex-direction: column
+    margin-top: 2rem
+    gap: 0.8rem
+    width: 100%
+    align-items: center
+
+    button
+      background-color: $secondary-color
+      font-weight: 600
+      padding: 0.5rem
+      font-size: 1.2rem
+      width: 90%
+      color: lightgray
+
+      &:first-child
+        background-color: $darker-primary
+
+.base
+  width: 100%
+  height: 100%
+
+.base-container
+  width: 100%
+  margin-left: $navbar-width
+  background-color: $lighter-primary
+  color: lightgray
+  display: flex
+  align-items: center
+  justify-content: center
+  align-content: center
+
+.base-flex
+  width: 100%
+  margin-left: $navbar-width
+  display: flex
+  justify-content: space-evenly
+  background-color: $lighter-primary
+  color: lightgray
+
+.base-grid
+  display: grid
+  align-content: center
+  grid-template-rows: 45% 45%
+  grid-template-columns: 45% 45%
+  gap: 15px
+  justify-content: center
+  width: 100%
+  margin-left: $navbar-width
+  background-color: $lighter-primary
+  color: lightgray
+
+.grid__item
+  border-radius: 0.5rem
+  padding: 15px
+  background-color: $primary-color
+  position: relative
+  border: 0.5rem solid $darker-primary
+
+  &:nth-child(3)
+    grid-column: span 2
+
+.leaderboard-layout
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-between
+  min-height: 57rem
+
+  .leaderboard
+    min-width: 40rem
+    min-height: 50rem
+
+    .table__players
+
+      .players__headers
+
+        .headers__rank
+          flex: 0 0 11%
+
+        .headers__rating
+          flex: 0 0 12%
+
+        .headers__games
+          flex: 0 0 13%
+
+        .headers__won
+          flex: 0 0 15%
+
+        .headers__lost
+          flex: 0 0 15%
+
+  .mode-buttons
+    display: flex
+    gap: 0.7rem
+    font-size: 1.6rem
+    margin-bottom: 0.5rem
+    font-weight: 600
+
+    button
+      padding: 0.6rem
+      width: 7rem
+      background-color: $darker-primary
+
+      &.btn--chosen
+        &:hover
+          filter: brightness(100%)
+          cursor: default
+
+      &:hover
+        box-shadow: 0px 0px 0px 3px $secondary-color inset
+        
+
+.login
+  width: 94%
+  position: absolute
+  top: 50%
+  transform: translate(-50%, -50%)
+  left: 50%
+  color: white
+
+.signup
+  width: 94%
+  position: absolute
+  top: 50%
+  transform: translate(-50%, -50%)
+  left: 50%
+  color: white
+
+.play
+  display: flex
+  flex-direction: column
+  margin: auto
+  gap: 1.5rem
+  width: 90%
+  max-width: 40rem
+  position: absolute
+  top: 50%
+  transform: translate(-50%, -50%)
+  left: 50%
+
+  .play__play-btn
+    background-color: $secondary-color
+    font-size: 1.8rem
+
+    &:disabled
+      cursor: not-allowed
+      background-color: $primary-color
+      filter: brightness(40%)
+
+  .play__time-modes
+    display: flex
+    justify-content: center
+    flex-direction: column
+    align-items: center
+    gap: 10px
+
+    .time-modes__mode
+      display: flex
+      gap: 10px
+      width: 100%
+      justify-content: space-between
+      align-items: baseline
+      font-size: 1.3rem
+
+      button
+        min-width: 10rem
+        background-color: $darker-primary
+
+        &:hover
+          box-shadow: 0px 0px 0px 3px $secondary-color inset
+
+      .mode__options
+        display: flex
+        gap: 5px
+
+.profile-briefly
+  display: flex
+  height: 100%
+  justify-content: space-evenly
+  align-items: center
+
+  a
+    color: white
+
+    &:hover
+      color: $secondary-color
+
+  .profile-briefly__general
+    display: flex
+    flex-direction: column
+    gap: 2rem
+    width: 30%
+
+    .general__date
+      font-weight: 400
+
+    .general__username
+      font-size: 2rem
+      overflow: hidden
+
+  .profile-briefly__stats
+    height: 100%
+    width: 50%
+    display: flex
+    flex-direction: column
+    justify-content: center
+    gap: 1rem
+
+    .stats__headers
+      display: flex
+      
+      .headers__name
+        flex: 0 0 45%
+
+      .headers__rating
+        flex: 0 0 35%
+
+
+    .stats__numbers
+      display: flex
+      height: 100%
+      width: 100%
+      flex-direction: column
+      flex: 0 0 40% 
+      gap: 2.2rem
+      justify-content: center
+
+      .numbers__mode
+        display: flex
+        align-items: baseline
+
+        .mode__name
+          font-size: 1.8rem
+          flex: 0 0 45%
+
+        .mode__rating, .mode__total-games
+          font-size: 1.25rem
+          flex: 0 0 40%
+
+
+.leaderboards
+  display: flex
+  flex-direction: column
+  justify-content: center
+  gap: 3rem
+  color: lightgray
+  background-color: $primary-color
+  padding: 1rem
+
+  .leaderboards__tables
+    display: flex
+    justify-content: space-around
+    gap: 4rem
+
+    .tables__table
+      display: flex
+      flex-direction: column
+      gap: 20px
+      min-width: 27rem
+      align-items: center
+
+      .table__see-all
+        color: $lighter-secondary
+        font-size: 1.3rem
+
+        &:hover
+          filter: brightness(150%)
+
+      .table__mode-name
+        font-weight: 600
+        font-size: 1.8rem
+        text-align: center
+
+      .leaderboard
+        width: 100%
+
+
+.leaderboard
+
+  .table__players
+    display: flex
+    flex-direction: column
+    gap: 5px
+    width: 100%
+    align-items: center
+
+    .players__headers
+      font-size: 0.8rem
+      color: lightgray
+      display: flex
+      width: 100%
+      
+      .headers__rank
+        flex: 0 0 12%
+
+      .headers__name
+        flex: 0 0 24%
+
+      .headers__rating
+        flex: 0 0 13%
+
+      .headers__games
+        flex: 0 0 15%
+
+      .headers__won
+        flex: 0 0 13%
+
+      .headers__lost
+        flex: 0 0 13%
+
+    .players__player
+      display: flex
+      justify-content: center
+      gap: 10px
+      font-size: 1.2rem
+      color: lightgray
+      align-items: center
+      width: 100%
+      padding: 0 0.6rem 0 0.6rem
+
+      &:hover
+        background-color: $secondary-color
+        border-radius: 0.3rem
+        color: white
+
+      .player__place
+        flex: 0 0 8%
+        font-size: 1.9rem
+
+        &.player__place--first
+          color: #f7c045
+
+        &.player__place--second
+          color: #bdbcb8
+
+        &.player__place--third
+          color: #a78867
+
+      .player__name
+        flex: 0 0 23%
+        font-size: 1rem
+        overflow: hidden
+
+      .player__elo
+        flex: 0 0 13%
+
+      .player__total-games
+        flex: 0 0 8%
+
+      .player__stats
+        margin-left: auto
+        display: flex
+        width: 100%
+        font-size: 1rem
+
+        .stats__won
+          color: #72E100
+          flex: 0 0 40%
+
+        .stats__lost
+          color: #FB0600
+          flex: 0 0 40%
+
+        .stats__draw
+          color: #C8C8C8
+
+.element-pool
+  transform: translateX(-10000px)
+  position: absolute
+
+.layout-board-section
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+  .layout__player
+    display: flex
+    justify-content: space-between
+
+    a
+      color: $lighter-secondary
+      cursor: pointer
+
+      &:hover
+        filter: brightness(150%)
+
+
+    .player__info
+      font-size: 2rem
+
+    .player__timer
+      font-size: 2rem
+      background-color: black
+      color: white
+
+  .layout__board
+    display: grid
+    justify-content: center
+    justify-items: center
+    align-items: center
+    align-content: center
+    grid-template-columns: repeat(8, auto)
+    margin: .5rem 0 .5rem 0
+    position: relative
+    touch-action: none
+    user-select: none
+
+    .square
+      position: relative
+      border: 1px solid #382514
+      width:  $square-size
+      height: $square-size
+      background-position:  center center 
+      box-sizing: border-box
+
+      &.highlighted
+        background-color: yellow !important
+
+      &.outlined
+        border: 8px solid #d1b284
+
+      &.legal
+        box-shadow: 0px 0px 10px 8px #8d8f22 inset
+
+      &:nth-child(-2n+8), 
+      &:nth-child(8) ~ :nth-child(-2n+15), 
+      &:nth-child(16) ~ :nth-child(-2n+24),
+      &:nth-child(24) ~ :nth-child(-2n+31),
+      &:nth-child(32) ~ :nth-child(-2n+40),
+      &:nth-child(40) ~ :nth-child(-2n+47),
+      &:nth-child(48) ~ :nth-child(-2n+56),
+      &:nth-child(56) ~ :nth-child(-2n+63)
+        background-color: #544232
+
+      &:nth-child(-2n+9), 
+      &:nth-child(9) ~ :nth-child(-2n+16), 
+      &:nth-child(16) ~ :nth-child(-2n+23),
+      &:nth-child(24) ~ :nth-child(-2n+32),
+      &:nth-child(32) ~ :nth-child(-2n+39),
+      &:nth-child(40) ~ :nth-child(-2n+48),
+      &:nth-child(48) ~ :nth-child(-2n+55),
+      &:nth-child(56) ~ :nth-child(-2n+64)
+        background-color: #fff
+
+
+    .piece
+      background-size: 100%
+      cursor: grab
+      height: $square-size
+      width: $square-size
+      left: 0
+      overflow: hidden
+      position: absolute
+      top: 0
+      touch-action: none
+      user-select: none
+      
+      &.dragging
+        z-index: 2
+        cursor: grabbing
+
+      &.bb
+        background-image: url('../assets/img/bBishop.png')
+
+      &.bk
+        background-image: url('../assets/img/bKing.png')
+
+      &.bn
+        background-image: url('../assets/img/bKnight.png')
+
+      &.bp
+        background-image: url('../assets/img/bPawn.png')
+
+      &.bq
+        background-image: url('../assets/img/bQueen.png')
+
+      &.br
+        background-image: url('../assets/img/bRook.png')
+
+      &.wb
+        background-image: url('../assets/img/wBishop.png')
+
+      &.wk
+        background-image: url('../assets/img/wKing.png')
+
+      &.wn
+        background-image: url('../assets/img/wKnight.png')
+
+      &.wp
+        background-image: url('../assets/img/wPawn.png')
+
+      &.wq
+        background-image: url('../assets/img/wQueen.png')
+
+      &.wr
+        background-image: url('../assets/img/wRook.png')
+ 
+    &:not(.flipped)
+      .piece
+        &.square-11
+          transform: translate(0, 700%)
+
+        &.square-12
+          transform: translate(0, 600%)
+
+        &.square-13
+          transform: translate(0, 500%)
+
+        &.square-14
+          transform: translate(0, 400%)
+
+        &.square-15
+          transform: translate(0, 300%)
+
+        &.square-16
+          transform: translate(0, 200%)
+
+        &.square-17
+          transform: translate(0, 100%)
+
+        &.square-18
+          transform: translate(0, 0)
+
+        &.square-21
+          transform: translate(100%, 700%)
+
+        &.square-22
+          transform: translate(100%, 600%)
+
+        &.square-23
+          transform: translate(100%, 500%)
+
+        &.square-24
+          transform: translate(100%, 400%)
+
+        &.square-25
+          transform: translate(100%, 300%)
+
+        &.square-26
+          transform: translate(100%, 200%)
+
+        &.square-27
+          transform: translate(100%, 100%)
+
+        &.square-28
+          transform: translate(100%, 0)
+
+        &.square-31
+          transform: translate(200%, 700%)
+
+        &.square-32
+          transform: translate(200%, 600%)
+
+        &.square-33
+          transform: translate(200%, 500%)
+
+        &.square-34
+          transform: translate(200%, 400%)
+
+        &.square-35
+          transform: translate(200%, 300%)
+
+        &.square-36
+          transform: translate(200%, 200%)
+
+        &.square-37
+          transform: translate(200%, 100%)
+
+        &.square-38
+          transform: translate(200%, 0)
+
+        &.square-41
+          transform: translate(300%, 700%)
+
+        &.square-42
+          transform: translate(300%, 600%)
+
+        &.square-43
+          transform: translate(300%, 500%)
+
+        &.square-44
+          transform: translate(300%, 400%)
+
+        &.square-45
+          transform: translate(300%, 300%)
+
+        &.square-46
+          transform: translate(300%, 200%)
+
+        &.square-47
+          transform: translate(300%, 100%)
+
+        &.square-48
+          transform: translate(300%, 0)
+
+        &.square-51
+          transform: translate(400%, 700%)
+
+        &.square-52
+          transform: translate(400%, 600%)
+
+        &.square-53
+          transform: translate(400%, 500%)
+
+        &.square-54
+          transform: translate(400%, 400%)
+
+        &.square-55
+          transform: translate(400%, 300%)
+
+        &.square-56
+          transform: translate(400%, 200%)
+
+        &.square-57
+          transform: translate(400%, 100%)
+
+        &.square-58
+          transform: translate(400%, 0)
+
+        &.square-61
+          transform: translate(500%, 700%)
+
+        &.square-62
+          transform: translate(500%, 600%)
+
+        &.square-63
+          transform: translate(500%, 500%)
+
+        &.square-64
+          transform: translate(500%, 400%)
+
+        &.square-65
+          transform: translate(500%, 300%)
+
+        &.square-66
+          transform: translate(500%, 200%)
+
+        &.square-67
+          transform: translate(500%, 100%)
+
+        &.square-68
+          transform: translate(500%, 0)
+
+        &.square-71
+          transform: translate(600%, 700%)
+
+        &.square-72
+          transform: translate(600%, 600%)
+
+        &.square-73
+          transform: translate(600%, 500%)
+
+        &.square-74
+          transform: translate(600%, 400%)
+
+        &.square-75
+          transform: translate(600%, 300%)
+
+        &.square-76
+          transform: translate(600%, 200%)
+
+        &.square-77
+          transform: translate(600%, 100%)
+
+        &.square-78
+          transform: translate(600%, 0)
+
+        &.square-81
+          transform: translate(700%, 700%)
+
+        &.square-82
+          transform: translate(700%, 600%)
+
+        &.square-83
+          transform: translate(700%, 500%)
+
+        &.square-84
+          transform: translate(700%, 400%)
+
+        &.square-85
+          transform: translate(700%, 300%)
+
+        &.square-86
+          transform: translate(700%, 200%)
+
+        &.square-87
+          transform: translate(700%, 100%)
+
+        &.square-88
+          transform: translate(700%, 0)
+
+    &.flipped
+      .piece
+        &.square-11
+          transform: translate(700%, 0)
+
+        &.square-12
+          transform: translate(700%, 100%)
+
+        &.square-13
+          transform: translate(700%, 200%)
+
+        &.square-14
+          transform: translate(700%, 300%)
+
+        &.square-15
+          transform: translate(700%, 400%)
+
+        &.square-16
+          transform: translate(700%, 500%)
+
+        &.square-17
+          transform: translate(700%, 600%)
+
+        &.square-18
+          transform: translate(700%, 700%)
+
+        &.square-21
+          transform: translate(600%, 0)
+
+        &.square-22
+          transform: translate(600%, 100%)
+
+        &.square-23
+          transform: translate(600%, 200%)
+
+        &.square-24
+          transform: translate(600%, 300%)
+
+        &.square-25
+          transform: translate(600%, 400%)
+
+        &.square-26
+          transform: translate(600%, 500%)
+
+        &.square-27
+          transform: translate(600%, 600%)
+
+        &.square-28
+          transform: translate(600%, 700%)
+
+        &.square-31
+          transform: translate(500%, 0)
+
+        &.square-32
+          transform: translate(500%, 100%)
+
+        &.square-33
+          transform: translate(500%, 200%)
+
+        &.square-34
+          transform: translate(500%, 300%)
+
+        &.square-35
+          transform: translate(500%, 400%)
+
+        &.square-36
+          transform: translate(500%, 500%)
+
+        &.square-37
+          transform: translate(500%, 600%)
+
+        &.square-38
+          transform: translate(500%, 700%)
+
+        &.square-41
+          transform: translate(400%, 0)
+
+        &.square-42
+          transform: translate(400%, 100%)
+
+        &.square-43
+          transform: translate(400%, 200%)
+
+        &.square-44
+          transform: translate(400%, 300%)
+
+        &.square-45
+          transform: translate(400%, 400%)
+
+        &.square-46
+          transform: translate(400%, 500%)
+
+        &.square-47
+          transform: translate(400%, 600%)
+
+        &.square-48
+          transform: translate(400%, 700%)
+
+        &.square-51
+          transform: translate(300%, 0)
+
+        &.square-52
+          transform: translate(300%, 100%)
+
+        &.square-53
+          transform: translate(300%, 200%)
+
+        &.square-54
+          transform: translate(300%, 300%)
+
+        &.square-55
+          transform: translate(300%, 400%)
+
+        &.square-56
+          transform: translate(300%, 500%)
+
+        &.square-57
+          transform: translate(300%, 600%)
+
+        &.square-58
+          transform: translate(300%, 700%)
+
+        &.square-61
+          transform: translate(200%, 0)
+
+        &.square-62
+          transform: translate(200%, 100%)
+
+        &.square-63
+          transform: translate(200%, 200%)
+
+        &.square-64
+          transform: translate(200%, 300%)
+
+        &.square-65
+          transform: translate(200%, 400%)
+
+        &.square-66
+          transform: translate(200%, 500%)
+
+        &.square-67
+          transform: translate(200%, 600%)
+
+        &.square-68
+          transform: translate(200%, 700%)
+
+        &.square-71
+          transform: translate(100%, 0)
+
+        &.square-72
+          transform: translate(100%, 100%)
+
+        &.square-73
+          transform: translate(100%, 200%)
+
+        &.square-74
+          transform: translate(100%, 300%)
+
+        &.square-75
+          transform: translate(100%, 400%)
+
+        &.square-76
+          transform: translate(100%, 500%)
+
+        &.square-77
+          transform: translate(100%, 600%)
+
+        &.square-78
+          transform: translate(100%, 700%)
+
+        &.square-81
+          transform: translate(0, 0)
+
+        &.square-82
+          transform: translate(0, 100%)
+
+        &.square-83
+          transform: translate(0, 200%)
+
+        &.square-84
+          transform: translate(0, 300%)
+
+        &.square-85
+          transform: translate(0, 400%)
+
+        &.square-86
+          transform: translate(0, 500%)
+
+        &.square-87
+          transform: translate(0, 600%)
+
+        &.square-88
+          transform: translate(0, 700%)
+
+
+.sidebar-section
+  display: flex
+  flex-direction: column
+  width: 40rem
+  justify-content: center
+  position: relative
+  border-radius: 0.5rem
+  border: 0.5rem solid $darker-primary
+  background-color: $primary-color
+
+  .sidebar__chat
+    word-break: break-all
+    height: 95%
+    max-height: 55rem
+    display: flex
+    flex-direction: column
+    font-size: 1.5rem
+    margin: 0.5rem
+    padding: 0.5rem
+    border-radius: 0.5rem
+    border: 0.5rem solid $secondary-color
+    background-color: $darker-primary
+
+    a
+      color: $lighter-secondary
+      cursor: pointer
+
+      &:hover
+        filter: brightness(150%)
+
+    .chat__messages
+      overflow: auto
+
+    .chat__buttons
+      margin-top: auto
+      display: flex
+      gap: 1rem
+      font-size: 1.3rem
+      padding-top: 0.3rem
+      border-top: 0.3rem solid $primary-color
+
+      button
+        padding: 0.6rem
+        width: 10rem
+        background-color: $primary-color
+
+        &.btn--chosen
+          &:hover
+            filter: brightness(100%)
+            cursor: default
+
+        &:hover
+          box-shadow: 0px 0px 0px 3px $secondary-color inset
+
+    .chat__draw-offer
+      position: sticky
+      width: 100%
+      background-color: $secondary-color
+      padding: 0.5rem
+      font-size: 1.2rem
+
+      button
+        background-color: $primary-color
+        margin: 0.5rem 1rem 0 0
+        width: 5rem
+
+    .chat__input-area
+      width: 100%
+      display: flex
+      align-items: center
+      justify-content: space-between
+
+      .input-area__input
+        width: 80%
+        outline: none
+        border: 0.2rem solid $primary-color
+        margin: 0.3rem 0 0.3rem 0
+        display: block
+        padding: 0.75rem 1.5rem
+        border-radius: 1px
+        font-size: 1.3rem
+
+        &:active,
+        &:focus 
+            transition: border 0.22s
+            border: 0.2rem solid $secondary-color
+      
+      .input-area__send
+        width: 20%
+        background-color: $secondary-color
+        height: 80%
+        border-radius: 0
+
+        &.btn--chosen
+          &:hover
+            filter: brightness(100%)
+            cursor: default
+
+        &:hover
+          box-shadow: 0px 0px 0px 3px $secondary-color inset
+
+.profile-layout
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: 100%
+  margin: auto
+
+  .info
+    display: flex
+    width: 100%
+    justify-content: space-evenly
+    min-height: 6rem
+    align-items: center
+
+  .tabs
+    display: flex
+    gap: 4rem
+    font-size: 2rem
+    margin: 1rem 0 2rem 0
+    justify-content: center
+    font-weight: 600
+
+    button
+      padding: 0.6rem
+      width: 10rem
+      background-color: $darker-primary
+
+      &.btn--chosen
+        &:hover
+          filter: brightness(100%)
+          cursor: default
+
+      &:hover
+        box-shadow: 0px 0px 0px 3px $secondary-color inset
+
+  #stats
+    display: flex
+    flex-direction: column
+    width: 100%
+    gap: 3rem
+    min-width: 40rem
+
+  .stats__mode
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    .mode__name
+      font-size: 2.5rem
+
+    .mode__general
+      display: flex
+      justify-content: space-evenly
+      width: 100%
+      margin-bottom: 0.2rem
+      overflow: hidden
+
+      .general__elo,
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        .elo__value,
+          font-size: 2.3rem
+
+      .general__total-games,
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        .total-games__value,
+          font-size: 2.3rem
+
+    .mode__game-bar
+      max-width: 35rem
+      width: 100%
+
+      .game-bar__header
+        display: flex
+        height: 1.7rem
+        position: relative
+        width: 100%
+        margin-bottom: 0.7rem
+
+        .game-bar__section
+          white-space: nowrap
+
+        &.game-bar--top
+          .game-bar--green
+            color: #5AAE04
+            font-size: 2rem
+            padding-right: 1rem
+
+          .game-bar--grey
+            color: #C8C8C8
+            font-size: 2rem
+
+          .game-bar--red
+            color: #FB0600
+            font-size: 2rem
+            flex-shrink: 1000
+            text-align: right
+            padding-left: 1rem
+
+        &.game-bar--bottom
+          .game-bar--green
+            color: #5AAE04
+            font-size: 1.3rem
+            padding-right: 1rem
+
+          .game-bar--grey
+            color: #C8C8C8
+            font-size: 1.3rem
+
+          .game-bar--red
+            color: #FB0600
+            font-size: 1.3rem
+            flex-shrink: 1000
+            text-align: right
+            padding-left: 1rem
+
+      .game-bar__bar
+        border-radius: 0.5rem
+        display: flex
+        height: 1.2rem
+        overflow: hidden
+        width: 100%
+
+        .game-bar--green
+          background-color: #5AAE04
+
+        .game-bar--grey
+          background-color: #C8C8C8
+
+        .game-bar--red
+          background-color: #FB0600
+
+.modal-backdrop
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, 0.3)
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 1000
+
+.modal
+  padding: 3rem
+  width: 40rem
+  height: 27rem
+  background: $primary-color
+  box-shadow: 2px 2px 20px 1px
+  border-radius: 0.5rem
+  border: 0.5rem solid $darker-primary
+  display: flex
+  flex-direction: column
+  justify-content: center
+  position: relative
+
+  &.modal--auth
+  
+  &.modal--endgame
+    align-items: center
+
+    .modal__data
+      display: flex
+      flex-direction: column
+      align-items: center
+      gap: 2rem
+
+      .data__result
+        font-size: 3.5rem
+        color: white
+
+      .data__mode
+        font-size: 2rem
+        color: white
+
+      .data__players
+        display: flex
+        gap: 2rem
+
+        .players__headers
+          color: lightgray
+          font-size: 1rem
+          display: flex
+          flex-direction: column
+          align-items: center
+          height: 100%
+          justify-content: space-evenly
+
+        .players__player
+          display: flex
+          flex-direction: column
+          align-items: center
+
+          .player__username
+            color: white
+            font-size: 1.9rem
+            flex: 0 0 15%
+
+          .player__score
+            font-size: 2rem
+
+            &.score--red
+              color: #FB0600
+
+            &.score--green
+              color: #5AAE04
+
+          .player__rating
+            font-size: 1.7rem
+
+            .rating__diff
+
+              &.diff--red
+                color: #FB0600
+
+              &.diff--green
+                color: #5AAE04
+
+  &.modal--promotion
+
+    .modal__pieces
+      display: flex
+      justify-content: center
+
+      .pieces__piece
+        touch-action: none
+        user-select: none
+        width: 6rem
+        cursor: pointer
+
+        &:hover
+          box-shadow: 0px 0px 10px 8px #8d8f22 inset
+        
+
+  .modal__close
+    font-size: 2rem
+    position: absolute
+    right: 0
+    top: -2%
+    border: none
+    background: none
+    outline: none
+    color: lightgray
+    cursor: pointer
+
+
+#games
+  display: flex
+  flex-direction: column
+  gap: 1rem
+  width: 60%
+  min-width: 40rem
+
+  .games__headers
+    display: flex
+    font-size: 1rem
+    color: lightgray
+
+    .headers__players
+      flex: 0 0 29%
+
+    .headers__score
+      flex: 0 0 17.5%
+    
+    .headers__mode
+      flex: 0 0 20%
+
+    .headers__moves
+      flex: 0 0 20%
+
+  .games__game
+    display: flex
+    align-items: center
+    font-size: 1.3rem
+    border: 0.2rem solid $darker-primary
+    background: $darker-primary
+    border-radius: 0.3rem
+    padding: 0.5rem
+
+    .game__players
+      display: flex
+      flex-direction: column
+      flex: 0 0 30%
+
+      a
+        color: $lighter-secondary
+        cursor: pointer
+
+        &:hover
+          filter: brightness(150%)
+
+    .game__score
+      display: flex
+      flex-direction: column
+      flex: 0 0 15%
+
+      .score--red
+        color: #FB0600
+
+      .score--green
+        color: #5AAE04
+      
+    .game__live
+      color: #FB0600
+
+    .game__mode
+      flex: 0 0 25%
+
+    .game__date
+      margin-left: auto
+
+.page-buttons
+  display: flex
+  gap: 0.2rem
+  margin-top: 0.5rem
+  min-height: 1rem
+
+  button
+    background-color: $secondary-color
+    min-width: 2rem
+    padding: 0.4rem
+    font-size: 0.8rem
+    font-weight: 600
+
+    &:disabled
+      filter: brightness(80%)
+      cursor: not-allowed
+      background-color: $darker-secondary !important
+
+    .arrow
+      border: solid lightgray
+      border-width: 0 3px 3px 0
+      display: inline-block
+      padding: 3px    
+
+      &.right
+        transform: rotate(-45deg)
+      &.left
+        transform: rotate(135deg)
+  
+
+.header
+  text-align: center
+
+.btn
+  
+  &.btn--full
+    width: 100%
+
+  &.btn--chosen
+    background-color: $secondary-color !important
+    color: white
+
+.form
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: 100%
+
+  button
+    margin-top: 0.5rem
+    background-color: $secondary-color
+    font-size: 1.5rem
+
+  p
+    margin-top: 0.7rem
+    font-size: 1.2rem
+
+    span
+      color: $lighter-secondary
+      cursor: pointer
+
+      &:hover
+        filter: brightness(150%)
+
+  .form__control input,
+    margin: 0
+    outline: none
+    border: 0.2rem solid $darker-primary
+    background-color: $darker-primary
+    display: block
+    width: 100%
+    color: white
+    padding: 0.75rem 1.5rem
+    border-radius: 1px
+    font-size: 1.3rem
+
+.form__control
+    position: relative
+    margin-bottom: 0.5rem
+    width: 100%
+
+.form__control label
+    display: block
+    margin: 0 0 0.3rem 0.3rem
+    font-weight: 500
+    font-size: 1.3rem
+
+.form__error
+  color: red
+
+.form__control input:active,
+.form__control input:focus 
+    transition: border 0.22s
+    border: 0.2rem solid $secondary-color
+
+
+
+
+
+a
+  text-decoration: none
+
+button
+  padding: 0.2rem
+  border-radius: 0.35rem
+  border: none
+  outline: none
+  font: inherit
+  color: inherit
+  background: none
+
+  &:hover:not(:disabled)
+    cursor: pointer
+    filter: brightness(125%)
+
+h1
+  font-size: 2.2rem
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+    transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s
