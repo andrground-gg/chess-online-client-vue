@@ -75,15 +75,18 @@ export default {
         let sorted: Record<string, unknown>[] = [];
         isLoading.value = false;
         if (props.mode === 'bullet') {
-          sorted = data.sort((a: { stats: { bullet: { elo: number; }; }; }, b: { stats: { bullet: { elo: number; }; }; }) => b.stats.bullet.elo - a.stats.bullet.elo);
+          sorted = data.sort((a: { stats: { bullet: { elo: number; }; }; }, b: { stats: { bullet: { elo: number; }; }; }) => b.stats.bullet.elo - a.stats.bullet.elo)
+                       .filter((a: { stats: { bullet: { totalGames: number; }; }; }) => a.stats.bullet.totalGames !== 0);
           emit('changeTotalPagesVal', Math.ceil(sorted.length / props.playersAmount));
         }
         else if (props.mode === 'blitz') {
-          sorted = data.sort((a: { stats: { blitz: { elo: number; }; }; }, b: { stats: { blitz: { elo: number; }; }; }) => b.stats.blitz.elo - a.stats.blitz.elo);
+          sorted = data.sort((a: { stats: { blitz: { elo: number; }; }; }, b: { stats: { blitz: { elo: number; }; }; }) => b.stats.blitz.elo - a.stats.blitz.elo)
+                       .filter((a: { stats: { blitz: { totalGames: number; }; }; }) => a.stats.blitz.totalGames !== 0);
           emit('changeTotalPagesVal', Math.ceil(sorted.length / props.playersAmount));
         }
         else if (props.mode === 'rapid') {
-          sorted = data.sort((a: { stats: { rapid: { elo: number; }; }; }, b: { stats: { rapid: { elo: number; }; }; }) => b.stats.rapid.elo - a.stats.rapid.elo);
+          sorted = data.sort((a: { stats: { rapid: { elo: number; }; }; }, b: { stats: { rapid: { elo: number; }; }; }) => b.stats.rapid.elo - a.stats.rapid.elo)
+                       .filter((a: { stats: { rapid: { totalGames: number; }; }; }) => a.stats.rapid.totalGames !== 0);
           emit('changeTotalPagesVal', Math.ceil(sorted.length / props.playersAmount));
         }
         players.value = sorted.filter((_: any, idx: number) => idx > (props.page - 1) * props.playersAmount && idx <= props.page * props.playersAmount);
