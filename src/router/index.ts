@@ -6,18 +6,24 @@ import LeaderboardsPage from '@/views/LeaderboardsPage.vue';
 import LeaderboardPage from '@/views/LeaderboardPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
-  { path: '/', component: Home },
-  { path: '/profile/:username', component: ProfilePage, props: true },
-  { path: '/play', component: GamePage },
-  { path: '/play/:id', component: GamePage, props: true },
-  { path: '/leaderboard', component: LeaderboardsPage },
-  { path: '/leaderboard/:mode/:page', component: LeaderboardPage, props: true},
+  { path: '/', component: Home, name: 'Home Page' },
+  { path: '/profile/:username', component: ProfilePage, props: true, name: 'Profile' },
+  { path: '/play', component: GamePage, name: 'Play Chess' },
+  { path: '/play/:id', component: GamePage, props: true, name: 'Play Chess' },
+  { path: '/leaderboard', component: LeaderboardsPage, name: 'Leaderboards' },
+  { path: '/leaderboard/:mode/:page', component: LeaderboardPage, props: true, name: 'Leaderboard'},
   { path: '/:notFound(.*)', redirect: '/' }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(),
   routes
-})
+});
 
-export default router
+router.beforeEach((to, _, next) => {
+  if (to.name)
+    document.title = to.name?.toString();
+  next();
+});
+
+export default router;
