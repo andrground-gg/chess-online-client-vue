@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/', component: Home, name: 'Home Page' },
   { path: '/profile/:username', component: ProfilePage, props: true, name: 'Profile' },
   { path: '/play', component: GamePage, name: 'Play Chess' },
-  { path: '/play/:id', component: GamePage, props: true, name: 'Play Chess' },
+  { path: '/play/:id', component: GamePage, props: true, name: 'Active chess game' },
   { path: '/leaderboard', component: LeaderboardsPage, name: 'Leaderboards' },
   { path: '/leaderboard/:mode/:page', component: LeaderboardPage, props: true, name: 'Leaderboard'},
   { path: '/:notFound(.*)', redirect: '/' }
